@@ -12,5 +12,4 @@ public class EmployeeManagement {
 	EmployeeView employeeView = new EmployeeView();
 	employeeView.selectOption();
     }
-
 }
