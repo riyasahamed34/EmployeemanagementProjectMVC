@@ -84,6 +84,22 @@ public class EmployeeService {
     	    return mobileNumber;
     	}
     }
+
+    /**
+     * Date Validation
+     */
+    public Date dateValidate(String date) {
+        
+        try{
+	    Date birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+	    return birthDate;
+	} catch(Exception e) {
+	    if(null != e) {
+                return null;
+	    }
+	    return null;
+        }
+    }
 }
 
 

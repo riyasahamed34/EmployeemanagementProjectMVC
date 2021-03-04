@@ -150,18 +150,12 @@ public class EmployeeView {
      * Date Validation
      */
     private Date  dateValidate() {
-	try {
-	    String date = scanner.next();
-	    Date dateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(date);    
-            return dateOfBirth;
-        } catch (Exception e) {
-            while(null != e) {
-                System.out.println(e);
-                System.out.println("\n Invalid date Format, " +
-                        "please Enter Date of Birth in the format ('dd/MM/yyyy')");
-		return dateValidate();
-	    }
-	    return null;
-	}	   	
+	String date = scanner.next();
+	
+	if (null == employeeController.dateValidate(date)) {
+            return dateValidate();
+	} else {
+	    return employeeController.dateValidate(date);
+	} 	
     }
 }

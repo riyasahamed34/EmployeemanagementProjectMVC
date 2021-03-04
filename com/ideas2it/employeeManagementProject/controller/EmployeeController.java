@@ -63,8 +63,18 @@ public class EmployeeController {
     	}
     }
 
+    /**
+     * Mobile Number Validation
+     */
     public long validateMobileNumber(long mobileNumber) {
     	employeeService.validateMobileNumber(mobileNumber);
     	return mobileNumber; 	
+    }
+
+    /**
+     * Date Validation
+     */
+    public Date dateValidate(String date) {
+        return employeeService.dateValidate(date);
     }
 }
