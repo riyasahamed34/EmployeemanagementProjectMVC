@@ -67,8 +67,7 @@ public class EmployeeController {
      * Mobile Number Validation
      */
     public long validateMobileNumber(long mobileNumber) {
-    	employeeService.validateMobileNumber(mobileNumber);
-    	return mobileNumber; 	
+    	return employeeService.validateMobileNumber(mobileNumber); 	
     }
 
     /**
