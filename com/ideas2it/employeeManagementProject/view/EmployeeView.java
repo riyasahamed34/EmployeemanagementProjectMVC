@@ -23,14 +23,12 @@ public class EmployeeView {
     public void selectOption() {
 	int menuOption = 0;
         int employeeId = 1;
-	String menuDisplay = " 1.Create a NewEmployee " +
-		"\n 2.update the existing Employee" +
+	String menuDisplay = " 1.Create a NewEmployee \n 2.update the existing Employee " +
 		"\n 3.show employee details \n 4.Delete the employee data" +
 		"\n 5.showALL \n 6.Exit \n";
 		
 	while (6 != menuOption) {
-    	    System.out.println("\n Enter the Options \n");
-            System.out.println(menuDisplay);
+    	    System.out.println("\n Enter the Options \n" + menuDisplay);
             menuOption = scanner.nextInt();
 	    switch(menuOption) {
    		 case 1:		
