@@ -2,6 +2,7 @@ package com.ideas2it.employeeManagementProject.service;
 
 import com.ideas2it.employeeManagementProject.model.Employee;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -76,13 +77,12 @@ public class EmployeeService {
      * Mobile Number Validation
      */
     public long validateMobileNumber(long mobileNumber) {
-    	if(8 == (mobileNumber / 1000000000) || 6 == (mobileNumber / 1000000000) ||
-                7 == (mobileNumber / 1000000000) || 9 == (mobileNumber / 1000000000)) {
-    	    return mobileNumber;		
-    	} else {
-    	    mobileNumber = 0;
-    	    return mobileNumber;
-    	}
+	
+    	if((mobileNumber / 1000000000) != 8 && (mobileNumber / 1000000000) != 6 &&
+               (mobileNumber / 1000000000)  != 7 && (mobileNumber / 1000000000) != 9) {
+    	    return 0;		
+    	} 
+    	return mobileNumber;
     }
 
     /**

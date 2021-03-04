@@ -74,9 +74,7 @@ public class EmployeeView {
         String lastName = scanner.next();
         System.out.println("Enter Salary");
         int salary = scanner.nextInt();
-        System.out.println("Enter Mobile Number");
-        long mobileNumber = validateMobileNumber();
-        System.out.println("Enter Date of Birth in the format ('dd/MM/yyyy')");  
+        long mobileNumber = validateMobileNumber();  
         Date dateOfBirth = dateValidate();       
         employeeController.addNewEmployeeDetails( employeeId, firstName, lastName, salary, mobileNumber, dateOfBirth);
         System.out.println("\n EmployeeDetails added successfully");    
@@ -94,9 +92,7 @@ public class EmployeeView {
             String lastName = scanner.next();
             System.out.println("Enter Salary");
             int salary = scanner.nextInt();
-            System.out.println("Enter Mobile Number");
             long mobileNumber = validateMobileNumber();
-            System.out.println(" Enter Date of Birth in the format ('dd/MM/yyyy')"); 
             Date dateOfBirth = dateValidate(); 
             employeeController.updateEmployeeDetails( employeeId, firstName, lastName, salary,
                     mobileNumber, dateOfBirth);
@@ -137,11 +133,12 @@ public class EmployeeView {
      * Mobile Number Validation
      */
     private long  validateMobileNumber() {
-	long mobileNumber = scanner.nextLong();
-	mobileNumber = employeeController.validateMobileNumber(mobileNumber);
+	System.out.println("Enter Mobile Number");
+	long mobileNumber = employeeController.validateMobileNumber(scanner.nextLong());
+
         if(0 == mobileNumber) {
-            System.out.println("Invalid Mobile Number, Enter again");
- 	    validateMobileNumber();	
+            System.out.println("Invalid Mobile Number....");
+ 	    return validateMobileNumber();	
         }
         return mobileNumber;		
     }
@@ -150,9 +147,11 @@ public class EmployeeView {
      * Date Validation
      */
     private Date  dateValidate() {
+	System.out.println("Enter Date of Birth in the format ('dd/MM/yyyy')");
 	String date = scanner.next();
 	
 	if (null == employeeController.dateValidate(date)) {
+	    System.out.println("Invalid Date format...");
             return dateValidate();
 	} else {
 	    return employeeController.dateValidate(date);
