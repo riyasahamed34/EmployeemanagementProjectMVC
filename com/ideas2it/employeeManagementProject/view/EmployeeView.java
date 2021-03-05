@@ -37,19 +37,13 @@ public class EmployeeView {
     		     employeeId++;
      		     break;	
 		 case 2:
-   		     System.out.println("\n Enter the employee Id  to update the details" );
-   		     employeeId = scanner.nextInt();
-   		     updateEmployeeDetails(employeeId) ;
+   		     updateEmployeeDetails() ;
                      break;
 		 case 3:
-		     System.out.println("\n Enter the Employee Id");
-		     employeeId = scanner.nextInt();
-		     showEmployeeDetails(employeeId);
+		     showEmployeeDetails();
  		     break;
 		 case 4:
-                     System.out.println("\n Enter the Employee Id");
-                     employeeId = scanner.nextInt();
-                     deleteEmployeeDetails(employeeId);
+                     deleteEmployeeDetails();
                      break;
 		 case 5:
                      showAll();
@@ -66,6 +60,7 @@ public class EmployeeView {
 
     /**
      * Adding New Employee and Details
+     * @param employeeId
      */	
     private void addNewEmployeeDetails(int employeeId) {
 	System.out.println("Enter firstName");
@@ -83,7 +78,9 @@ public class EmployeeView {
     /**
      * updating Existing Employee and Details
      */
-    private void updateEmployeeDetails(int employeeId) {
+    private void updateEmployeeDetails() {
+	System.out.println("\n Enter the employee Id  to update the details" );
+        int employeeId = scanner.nextInt();
 
 	if(employeeController.employeeIdPresent(employeeId)) {
 	    System.out.println("Enter firstName");
@@ -105,7 +102,9 @@ public class EmployeeView {
     /**
      * showing particular Employee Details
      */
-    private void showEmployeeDetails(int employeeId) {
+    private void showEmployeeDetails() {
+	System.out.println("\n Enter the employee Id  to show the details" );
+        int employeeId = scanner.nextInt();
 	System.out.println(employeeController.getEmployeeDetails(employeeId));
         if(null == employeeController.getEmployeeDetails(employeeId)) {
 	    System.out.println("No record Found");
@@ -115,7 +114,9 @@ public class EmployeeView {
     /**
      * Deleting particular Employee Details
      */
-    private void deleteEmployeeDetails(int employeeId) {
+    private void deleteEmployeeDetails() {
+        System.out.println("\n Enter the Employee Id");
+        int employeeId = scanner.nextInt();
 	employeeController.deleteEmployee(employeeId);
     }
 
@@ -124,9 +125,7 @@ public class EmployeeView {
      */
     private void showAll() {
         List<String> employeeList = employeeController.getAll();
-        for(String employeeId : employeeList) {
-            System.out.println(employeeList);
-        }
+        System.out.println(employeeList);
     }
 
     /**

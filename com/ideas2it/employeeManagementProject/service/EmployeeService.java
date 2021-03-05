@@ -21,6 +21,13 @@ public class EmployeeService {
  
     /**
      * Adding New Employee and Details to employeeDetails
+     *
+     * @param employeeId
+     * @param firstName
+     * @param lastName
+     * @param salary
+     * @param mobileNumber
+     * @param dateOfBirth
      */
     public void addNewEmployeeDetails(int employeeId, String firstName, String lastName, int salary,
 	    long mobileNumber, Date dateOfBirth) {
@@ -37,6 +44,13 @@ public class EmployeeService {
 
     /**
      * Updating Existing Employee and Details
+     *
+     * @param employeeId
+     * @param firstName
+     * @param lastName
+     * @param salary
+     * @param mobileNumber
+     * @param dateOfBirth
      */
     public void updateEmployeeDetails(int employeeId, String firstName, String lastName, int salary,
             long mobileNumber,Date dateOfBirth) {
@@ -45,6 +59,7 @@ public class EmployeeService {
     
     /**
      * Deleting Particular Employee and Details
+     * @param employeeId
      */
     public void deleteEmployee(int employeeId) {
 	employeeDetails.remove(employeeId);
@@ -56,13 +71,14 @@ public class EmployeeService {
     public List<String> getAll() {
         List<String> employeeList = new ArrayList<String>();
         for(Employee employee : employeeDetails.values()) {
-            employeeList.add(employee.toString());
+            employeeList.add("\n" + employee.toString());
         }
         return employeeList;     
     }
 
     /**
      * Checking the the Presence of EmployeeId
+     * @param employeeId
      */	
     public boolean employeeIdPresent(int employeeId){
 
@@ -75,6 +91,7 @@ public class EmployeeService {
 
     /**
      * Mobile Number Validation
+     * @param mobileNumber
      */
     public long validateMobileNumber(long mobileNumber) {
 	
@@ -87,6 +104,7 @@ public class EmployeeService {
 
     /**
      * Date Validation
+     * @param date
      */
     public Date dateValidate(String date) {
         
