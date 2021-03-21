@@ -56,7 +56,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public int insertNewEmployeeAddress(List<EmployeeAddress> addressList, int employeeId) {
 
-        for(int index = 0;index < addressList.size(); index++) {
+        for (int index = 0;index < addressList.size(); index++) {
             String doorNumber = addressList.get(index).getDoorNumber();
             String  streetOrroadName = addressList.get(index).getStreetOrroadName();
             String city = addressList.get(index).getCity();
@@ -87,7 +87,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public Employee getEmployeeDetails(int employeeId) {
 
         try {
-
             Connection connection = DataBaseConnection.getConnection();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from employee,employeeAddress "
@@ -96,6 +95,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
                     + "and employee.isdeleted = 0 and employeeaddress.isdeleted = 0");
             Employee employee = null;
             List<EmployeeAddress> employeeAddressList = new ArrayList<>();
+            
             while(resultSet.next()) {
                 employeeId = resultSet.getInt(1);
                 String firstName = resultSet.getString(2);
@@ -170,7 +170,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
         try {
             Connection connection = DataBaseConnection.getConnection();
             Statement statement = connection.createStatement();
-            if(0 != statement.executeUpdate("update employeeAddress set door_number = '"+doorNumber+"'"
+            if (0 != statement.executeUpdate("update employeeAddress set door_number = '"+doorNumber+"'"
                     + ", Street_or_RoadName = '"+streetOrroadName+"' , city = '"+city+"'"
                     + ", pincode = '"+pincode+"' , state = '"+state+"', address_type = '"+addressType+"'"
                     + " where address_id = '"+addressId+"' and employee_id = '"+employeeId+"'")) {
@@ -219,9 +219,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
                             + "employeeaddress.isdeleted = 0 ");
             int flag = 0;
 
-            if(resultSet.next()) {
+            if (resultSet.next()) {
 
-                while(flag ==0) {
+                while (flag ==0) {
                     int employeeId = resultSet.getInt(1);
                     String firstName = resultSet.getString(2);
                     String lastName = resultSet.getString(3);
@@ -230,7 +230,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
                     Date dateOfBirth = resultSet.getDate(6);
                     List<EmployeeAddress> employeeAddressList = new ArrayList<>();
 
-                    while(employeeId == resultSet.getInt(1) ) {
+                    while (employeeId == resultSet.getInt(1) ) {
                         int addressId = resultSet.getInt(8);
                         String doorNumber = resultSet.getString(10);
                         String streetOrroadName = resultSet.getString(11);
@@ -272,9 +272,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
                             + "employeeaddress.isdeleted = 1 ");
             int flag = 0;
 
-            if(resultSet.next()) {
+            if (resultSet.next()) {
 
-                while(0 == flag) {
+                while (0 == flag) {
                     int employeeId = resultSet.getInt(1);
                     String firstName = resultSet.getString(2);
                     String lastName = resultSet.getString(3);
@@ -283,7 +283,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
                     Date dateOfBirth = resultSet.getDate(6);
                     List<EmployeeAddress> employeeAddressList = new ArrayList<>();
 
-                    while(resultSet.getInt(1) == employeeId) {
+                    while (resultSet.getInt(1) == employeeId) {
                         int addressId = resultSet.getInt(8);
                         System.out.println(addressId+ "addres");
                         String doorNumber = resultSet.getString(10);
@@ -343,7 +343,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
             ResultSet resultSet = statement.executeQuery
                     ("select max(employee_id) as maxLevel from employee");
 
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 int employeeId = resultSet.getInt("maxLevel");
                 return employeeId ;
             }
