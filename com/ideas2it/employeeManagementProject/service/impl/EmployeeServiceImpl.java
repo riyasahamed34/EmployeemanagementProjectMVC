@@ -36,7 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             double salary, long mobileNumber, Date dateOfBirth,  List<String[]> employeeAddressList)  { 
         List<EmployeeAddress> addressList = new ArrayList<EmployeeAddress>();
 
-        for(int index  = 0; index < employeeAddressList.size(); index++) {
+        for (int index  = 0; index < employeeAddressList.size(); index++) {
             String doorNumber = employeeAddressList.get(index)[0];
             String  streetOrroadName = employeeAddressList.get(index)[1];
             String city = employeeAddressList.get(index)[2];
@@ -68,7 +68,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             List<EmployeeAddress> employeeAddressList = employee.getAddressList();
             employeeList.add(employee.toString());
             
-            for(int index = 0; index < employeeAddressList.size(); index++) {
+            for (int index = 0; index < employeeAddressList.size(); index++) {
                 int addressId = employeeAddressList.get(index).getAddressId();
                 String doorNumber = employeeAddressList.get(index).getDoorNumber();
                 String  streetOrroadName = employeeAddressList.get(index).getStreetOrroadName();
@@ -145,7 +145,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<String> employeeList = new ArrayList<>();
 
         try {
-            for(int index1 = 0; index1 < employees.size(); index1++) {
+            for (int index1 = 0; index1 < employees.size(); index1++) {
                 int employeeId = employees.get(index1).getEmployeeId();
                 String firstName = employees.get(index1).getFirstName();
                 String lastName = employees.get(index1).getLastName();
@@ -155,7 +155,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 List<EmployeeAddress> employeeAddressList = employees.get(index1).getAddressList();
                 List<String> addressList = new ArrayList<>();
 
-                for(int index = 0 ; index < employeeAddressList.size(); index++) {
+                for (int index = 0 ; index < employeeAddressList.size(); index++) {
                     int addressId = employeeAddressList.get(index).getAddressId();
                     String doorNumber = employeeAddressList.get(index).getDoorNumber();
                     String  streetOrroadName = employeeAddressList.get(index).getStreetOrroadName();
@@ -189,7 +189,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public long validateMobileNumber(long mobileNumber) {
 
-        if((mobileNumber / 1000000000) != 8 && (mobileNumber / 1000000000) != 6 &&
+        if ((mobileNumber / 1000000000) != 8 && (mobileNumber / 1000000000) != 6 &&
                 (mobileNumber / 1000000000)  != 7 && (mobileNumber / 1000000000) != 9) {
             return 0;		
         } 
@@ -205,7 +205,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Date dateValidate(String date) {
         try{
-            if( Pattern.matches("([012][1-9]|3[01])-(0?[1-9]|1[012])-([12][0-9][0-9][0-9])",date )) {  
+            if (Pattern.matches("([012][1-9]|3[01])-(0?[1-9]|1[012])-([12][0-9][0-9][0-9])",date)) {  
                 Date birthDate = new Date( new SimpleDateFormat("dd-MM-yyyy").parse(date).getTime());
                 return birthDate;
              }
@@ -236,7 +236,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 List<EmployeeAddress> employeeAddressList = employees.get(index1).getAddressList();
                 List<String> addressList = new ArrayList<>();
 
-                for(int index = 0 ; index < employeeAddressList.size(); index++) {
+                for (int index = 0 ; index < employeeAddressList.size(); index++) {
                     int addressId = employeeAddressList.get(index).getAddressId();
                     String doorNumber = employeeAddressList.get(index).getDoorNumber();
                     String  streetOrroadName = employeeAddressList.get(index).getStreetOrroadName();
