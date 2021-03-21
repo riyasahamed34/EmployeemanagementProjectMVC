@@ -77,7 +77,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
             }
         }
         return 1;
-
     }
 
     /*
@@ -308,7 +307,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
         } catch (Exception e ) {
             e.printStackTrace();
         } 
-        System.out.println(employeeList.size());
         return employeeList;
     }
 
